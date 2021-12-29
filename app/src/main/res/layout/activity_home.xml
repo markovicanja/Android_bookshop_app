@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <ImageView
+        android:id="@+id/header_image"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/header"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/book_image"/>
+
+    <TextView
+        android:id="@+id/chevron_left_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/book_image"
+        app:layout_constraintTop_toTopOf="@id/book_image"
+        app:layout_constraintBottom_toBottomOf="@id/book_image"
+        app:drawableLeftCompat="@drawable/outline_chevron_left_black_36" />
+
+    <TextView
+        android:id="@+id/chevron_right_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/book_image"
+        app:layout_constraintTop_toTopOf="@id/book_image"
+        app:layout_constraintBottom_toBottomOf="@id/book_image"
+        app:drawableLeftCompat="@drawable/outline_chevron_right_black_36" />
+
+    <ImageView
+        android:id="@+id/book_image"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:src="@drawable/zlatni_leptir_vv"
+        app:layout_constraintTop_toBottomOf="@id/header_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/book_title"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/book_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zlatni leptir"
+        app:layout_constraintTop_toBottomOf="@id/book_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/book_author"/>
+
+    <TextView
+        android:id="@+id/book_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desanka Maksimovic"
+        app:layout_constraintTop_toBottomOf="@id/book_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="20sp"
+        android:textColor="@color/purple_500"
+        android:textFontWeight="100"
+        app:layout_constraintBottom_toTopOf="@id/promotion_layout"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/promotion_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        app:layout_constraintTop_toBottomOf="@id/book_author"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/light_gray">
+
+        <TextView
+            android:id="@+id/promotion_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="P R O M O C I J A"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/promotion_book_image"
+            android:textColor="@color/purple_500"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/chevron_left_promotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/promotion_book_image"
+            app:layout_constraintTop_toTopOf="@id/promotion_book_image"
+            app:layout_constraintBottom_toBottomOf="@id/promotion_book_image"
+            app:drawableLeftCompat="@drawable/outline_chevron_left_black_36" />
+
+        <TextView
+            android:id="@+id/chevron_right_promotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/promotion_book_image"
+            app:layout_constraintTop_toTopOf="@id/promotion_book_image"
+            app:layout_constraintBottom_toBottomOf="@id/promotion_book_image"
+            app:drawableLeftCompat="@drawable/outline_chevron_right_black_36" />
+
+        <ImageView
+            android:id="@+id/promotion_book_image"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/izgubljena_sestra_vv"
+            app:layout_constraintTop_toBottomOf="@id/promotion_heading"
+            app:layout_constraintBottom_toTopOf="@id/promotion_book_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/promotion_book_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Izgubljena sestra"
+            app:layout_constraintTop_toBottomOf="@id/promotion_book_image"
+            app:layout_constraintBottom_toTopOf="@id/promotion_book_author"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/promotion_book_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lusinda Rajli"
+            app:layout_constraintTop_toBottomOf="@id/promotion_book_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textSize="20sp"
+            android:textColor="@color/purple_500"
+            android:textFontWeight="100"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
