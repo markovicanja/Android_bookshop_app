@@ -118,14 +118,15 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.profile_menu_item:
-
+                Intent profileIntent = new Intent(this, ProfileActivity.class);
+                startActivity(profileIntent);
                 return true;
             case R.id.recommendations_menu_item:
 
                 return true;
             case R.id.logout_menu_item:
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
+                Intent loginIntent = new Intent(this, MainActivity.class);
+                startActivity(loginIntent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
