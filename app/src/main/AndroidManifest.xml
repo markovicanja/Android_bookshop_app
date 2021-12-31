@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KnjizaraPerce">
         <activity
+            android:name=".PasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditDataActivity"
             android:exported="false" />
         <activity

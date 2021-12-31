@@ -2,44 +2,46 @@ package rs.ac.bg.etf.knjizaraperce;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import rs.ac.bg.etf.knjizaraperce.databinding.ActivityHomeBinding;
-import rs.ac.bg.etf.knjizaraperce.databinding.ActivityProfileBinding;
+import rs.ac.bg.etf.knjizaraperce.databinding.ActivityEditDataBinding;
+import rs.ac.bg.etf.knjizaraperce.databinding.ActivityPasswordBinding;
 
-public class ProfileActivity extends AppCompatActivity {
+public class PasswordActivity extends AppCompatActivity {
 
-    private ActivityProfileBinding binding;
-    public static UserViewModel userViewModel;
+    private ActivityPasswordBinding binding;
+    private UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityProfileBinding.inflate(getLayoutInflater());
+        binding = ActivityPasswordBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
-
-        binding.username.setText(userViewModel.getUsername().getValue());
-        binding.firstName.setText(userViewModel.getFirstName().getValue());
-        binding.lastName.setText(userViewModel.getLastName().getValue());
-        binding.address.setText(userViewModel.getAddress().getValue());
-        binding.phone.setText(userViewModel.getPhone().getValue());
-
-        binding.buttonChangeData.setOnClickListener(v -> {
-            Intent intent = new Intent(this, EditDataActivity.class);
-            startActivity(intent);
-        });
+        userViewModel = ProfileActivity.userViewModel;
 
         binding.buttonChangePassword.setOnClickListener(v -> {
-            Intent intent = new Intent(this, PasswordActivity.class);
-            startActivity(intent);
+            String newPassword = binding.newPassword.getEditText().toString();
+            String repeatedPassword = binding.repeatedPassword.getEditText().toString();
+            String currentPassword = binding.currentPassword.getEditText().toString();
+
+            if (!newPassword.equals(repeatedPassword)) {
+                Toast.makeText(this, "Lozinke se ne poklapaju.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (!currentPassword.equals(userViewModel.getPassword().getValue())) {
+                Toast.makeText(this, "Lozinka nije ispravna.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            userViewModel.setPassword(newPassword);
+            Toast.makeText(this, "Lozinka je uspesno izmenjena.", Toast.LENGTH_SHORT).show();
+            finish();
         });
     }
 
@@ -55,6 +57,7 @@ public class ProfileActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.profile_menu_item:
+                finish();
                 return true;
             case R.id.recommendations_menu_item:
 
@@ -67,5 +70,4 @@ public class ProfileActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
 }
