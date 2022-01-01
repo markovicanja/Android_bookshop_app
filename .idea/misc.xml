@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Anja/AndroidStudioProjects/KnjizaraPerce/app/src/main/res/layout/activity_book_details.xml" value="0.264" />
         <entry key="..\:/Users/Anja/AndroidStudioProjects/KnjizaraPerce/app/src/main/res/layout/activity_edit_data.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Anja/AndroidStudioProjects/KnjizaraPerce/app/src/main/res/layout/activity_home.xml" value="0.16" />
         <entry key="..\:/Users/Anja/AndroidStudioProjects/KnjizaraPerce/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Anja/AndroidStudioProjects/KnjizaraPerce/app/src/main/res/layout/activity_password.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Anja/AndroidStudioProjects/KnjizaraPerce/app/src/main/res/layout/activity_profile.xml" value="0.264" />
+        <entry key="..\:/Users/Anja/AndroidStudioProjects/KnjizaraPerce/app/src/main/res/layout/activity_recommendation.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/Anja/AndroidStudioProjects/KnjizaraPerce/app/src/main/res/layout/activity_recommended_books.xml" value="0.264" />
         <entry key="..\:/Users/Anja/AndroidStudioProjects/KnjizaraPerce/app/src/main/res/layout/fragment_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Anja/AndroidStudioProjects/KnjizaraPerce/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
       </map>

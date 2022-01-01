@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/header_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/header"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/book_image"
+                android:layout_width="120dp"
+                android:layout_height="200dp"
+                android:src="@drawable/zlatni_leptir_vv"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/book_title"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"/>
+
+            <Button
+                android:id="@+id/promotion_button"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_marginTop="10dp"
+                android:text="N A   P R O M O C I J I"
+                android:textSize="6sp"
+                android:theme="@style/Button.Red"
+                app:layout_constraintTop_toBottomOf="@id/book_image"
+                app:layout_constraintLeft_toLeftOf="@id/book_image"
+                app:layout_constraintRight_toRightOf="@id/book_image" />
+
+            <TextView
+                android:id="@+id/book_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zlatni leptir"
+                app:layout_constraintTop_toTopOf="@id/book_image"
+                app:layout_constraintLeft_toRightOf="@id/book_image"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+
+            <LinearLayout
+                android:id="@+id/author_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/book_title"
+                app:layout_constraintLeft_toLeftOf="@id/book_title" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="Autor: "/>
+
+                <TextView
+                    android:id="@+id/book_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Desanka Maksimovic"
+                    android:textFontWeight="800"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pages_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/author_layout"
+                app:layout_constraintLeft_toLeftOf="@id/book_title" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="Broj strana: "/>
+
+                <TextView
+                    android:id="@+id/book_pages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="123"
+                    android:textFontWeight="800"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/year_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/pages_layout"
+                app:layout_constraintLeft_toLeftOf="@id/book_title" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="Godina izdanja: "/>
+
+                <TextView
+                    android:id="@+id/book_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2021"
+                    android:textFontWeight="800"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="PREPORUCI"
+                app:layout_constraintTop_toBottomOf="@id/year_layout"
+                app:layout_constraintLeft_toLeftOf="@id/year_layout"/>
+
+            <TextView
+                android:id="@+id/description_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="Opis:"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/promotion_button"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:id="@+id/book_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Najlepše pesme za decu. Životinjski i biljni svet je veoma raznovrstan i živ u pesmama Desanke Maksimović, a veoma duhovita i vedra atmosfera prati svet odraslih posmatran dečjim očima.
+        „Sve čega se dotaknemo i što pogledamo, donosi nam znanja“, kaže pesnikinja pokazajući nam da je priroda put do avanture, ali istovremeno i put do osećanja.
+        Upoznajte se sa hvalisavim zečevima, saznajte otkud mače u džepu, izvolite na izložbu dece slikara, rešavajte zagonetke i uživajte u bajkovitoj poemi o zlatnom leptiru.
+        Ovo nisu samo pesme namenjene deci već i svima koji se iskreno raduju životu."
+                android:textFontWeight="800"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/description_heading"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"/>
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/light_gray"
+                app:layout_constraintTop_toBottomOf="@id/book_description"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/rating_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toTopOf="@id/line1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/rating_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ocena: "
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_marginStart="20dp"/>
+
+                <TextView
+                    android:id="@+id/star1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/rating_heading"
+                    android:textColor="@color/purple_500"
+                    app:drawableLeftCompat="@drawable/outline_star_24" />
+
+                <TextView
+                    android:id="@+id/star2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/rating_heading"
+                    android:textColor="@color/purple_500"
+                    app:drawableLeftCompat="@drawable/outline_star_24" />
+
+                <TextView
+                    android:id="@+id/star3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/rating_heading"
+                    android:textColor="@color/purple_500"
+                    app:drawableLeftCompat="@drawable/outline_star_24" />
+
+                <TextView
+                    android:id="@+id/star4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/rating_heading"
+                    android:textColor="@color/purple_500"
+                    app:drawableLeftCompat="@drawable/outline_star_24" />
+
+                <TextView
+                    android:id="@+id/star5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/rating_heading"
+                    android:textColor="@color/purple_500"
+                    app:drawableLeftCompat="@drawable/outline_star_outline_24" />
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/rating_heading"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:text="4" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/light_gray"
+                app:layout_constraintTop_toBottomOf="@id/rating_layout"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/comment_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/line2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/comment_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Komentari: "
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_marginStart="20dp"/>
+                
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_marginTop="10dp" >
+
+                    <ImageView
+                        android:id="@+id/user_image"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/user"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/comment_author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nikola Djindjic"
+                        android:textColor="#4674E3"
+                        android:textSize="17sp"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintLeft_toRightOf="@id/user_image"
+                        app:layout_constraintBottom_toBottomOf="@id/user_image"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Odlicna knjiga! Za svaku preporuku!"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@id/user_image"
+                        tools:ignore="MissingConstraints" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/light_gray"
+                app:layout_constraintTop_toBottomOf="@id/comment_layout"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/add_comment_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/line3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/add_comment_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Postavi komentar: "
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_marginStart="20dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_marginTop="10dp" >
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/add_comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:hint="Komentar..."
+                        app:layout_constraintTop_toTopOf="parent"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/button_add_comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="POSTAVI"
+                        app:layout_constraintTop_toBottomOf="@id/add_comment"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</ScrollView>

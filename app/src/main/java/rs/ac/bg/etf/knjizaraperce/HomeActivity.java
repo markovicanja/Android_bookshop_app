@@ -66,19 +66,27 @@ public class HomeActivity extends AppCompatActivity {
         setContent();
 
         binding.bookImage.setOnClickListener(view -> {
-
+            Intent intent = new Intent(this, BookDetailsActivity.class);
+            intent.putExtra("book_title", books.get(index).getTitle());
+            startActivity(intent);
         });
 
         binding.bookTitle.setOnClickListener(view -> {
-
+            Intent intent = new Intent(this, BookDetailsActivity.class);
+            intent.putExtra("book_title", books.get(index).getTitle());
+            startActivity(intent);
         });
 
         binding.promotionBookImage.setOnClickListener(view -> {
-
+            Intent intent = new Intent(this, BookDetailsActivity.class);
+            intent.putExtra("book_title", promotionBooks.get(promotionIndex).getTitle());
+            startActivity(intent);
         });
 
         binding.promotionBookTitle.setOnClickListener(view -> {
-
+            Intent intent = new Intent(this, BookDetailsActivity.class);
+            intent.putExtra("book_title", promotionBooks.get(promotionIndex).getTitle());
+            startActivity(intent);
         });
 
         binding.chevronLeftBook.setOnClickListener(view -> {
@@ -122,7 +130,8 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(profileIntent);
                 return true;
             case R.id.recommendations_menu_item:
-
+                Intent recommendationIntent = new Intent(this, RecommendedBooksActivity.class);
+                startActivity(recommendationIntent);
                 return true;
             case R.id.logout_menu_item:
                 Intent loginIntent = new Intent(this, MainActivity.class);

@@ -57,7 +57,8 @@ public class ProfileActivity extends AppCompatActivity {
             case R.id.profile_menu_item:
                 return true;
             case R.id.recommendations_menu_item:
-
+                Intent recommendationIntent = new Intent(this, RecommendedBooksActivity.class);
+                startActivity(recommendationIntent);
                 return true;
             case R.id.logout_menu_item:
                 Intent loginIntent = new Intent(this, MainActivity.class);

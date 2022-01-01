@@ -64,7 +64,8 @@ public class EditDataActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.recommendations_menu_item:
-
+                Intent recommendationIntent = new Intent(this, RecommendedBooksActivity.class);
+                startActivity(recommendationIntent);
                 return true;
             case R.id.logout_menu_item:
                 Intent loginIntent = new Intent(this, MainActivity.class);
