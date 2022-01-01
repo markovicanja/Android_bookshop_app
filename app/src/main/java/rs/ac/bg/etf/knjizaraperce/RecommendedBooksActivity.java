@@ -48,6 +48,11 @@ public class RecommendedBooksActivity extends AppCompatActivity {
         recommendedBooks = getRecommendedBooks();
         setContent();
 
+        binding.headerImage.setOnClickListener(v -> {
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        });
+
         binding.bookImage.setOnClickListener(view -> {
             Intent intent = new Intent(this, BookDetailsActivity.class);
             intent.putExtra("book_title", recommendedBooks.get(index).getTitle());

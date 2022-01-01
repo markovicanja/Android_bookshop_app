@@ -49,6 +49,11 @@ public class BookDetailsActivity extends AppCompatActivity {
             binding.promotionButton.setVisibility(View.GONE);
         }
 
+        binding.headerImage.setOnClickListener(v -> {
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        });
+
         binding.buttonRecommend.setOnClickListener(v -> {
             Intent intent = new Intent(this, RecommendationActivity.class);
             intent.putExtra("book_title", bookTitle);

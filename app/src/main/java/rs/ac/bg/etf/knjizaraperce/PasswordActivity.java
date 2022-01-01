@@ -26,6 +26,11 @@ public class PasswordActivity extends AppCompatActivity {
 
         userViewModel = ProfileActivity.userViewModel;
 
+        binding.headerImage.setOnClickListener(v -> {
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        });
+
         binding.buttonChangePassword.setOnClickListener(v -> {
             String newPassword = binding.newPassword.getEditText().toString();
             String repeatedPassword = binding.repeatedPassword.getEditText().toString();

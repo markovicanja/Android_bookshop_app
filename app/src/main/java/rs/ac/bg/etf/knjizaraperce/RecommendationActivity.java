@@ -2,6 +2,7 @@ package rs.ac.bg.etf.knjizaraperce;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -19,6 +20,11 @@ public class RecommendationActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         String bookTitle = bundle.getString("book_title");
+
+        binding.headerImage.setOnClickListener(v -> {
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        });
 
         binding.heading.setText("Preporucite knjigu '" + bookTitle + "' nekome...");
 

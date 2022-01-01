@@ -26,6 +26,11 @@ public class ProfileActivity extends AppCompatActivity {
 
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
 
+        binding.headerImage.setOnClickListener(v -> {
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        });
+
         binding.username.setText(userViewModel.getUsername().getValue());
         binding.firstName.setText(userViewModel.getFirstName().getValue());
         binding.lastName.setText(userViewModel.getLastName().getValue());

@@ -33,6 +33,11 @@ public class EditDataActivity extends AppCompatActivity {
         binding.address.setPlaceholderText(userViewModel.getAddress().getValue());
         binding.phone.setPlaceholderText(userViewModel.getPhone().getValue());
 
+        binding.headerImage.setOnClickListener(v -> {
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        });
+
         binding.buttonChangeData.setOnClickListener(v -> {
             String first_name = binding.firstName.getEditText().toString();
             String last_name = binding.lastName.getEditText().toString();
