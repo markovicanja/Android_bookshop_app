@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,7 +35,6 @@ public class BookDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityBookDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         Bundle bundle = getIntent().getExtras();
         bookTitle = bundle.getString("book_title");
         book = findbook();
@@ -45,9 +45,95 @@ public class BookDetailsActivity extends AppCompatActivity {
         binding.bookPages.setText("" + book.getPages());
         binding.bookYear.setText("" + book.getYear());
         binding.bookDescription.setText(book.getDescription());
+        binding.rating.setText("" + book.getRating());
         if (book.getPromotion() == 0) {
             binding.promotionButton.setVisibility(View.GONE);
         }
+
+        binding.star1.setOnClickListener(v -> {
+            binding.star1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
+            binding.star3.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
+            binding.star4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
+            binding.star5.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
+
+            if (book.getRating() > 1) {
+                book.setRating(book.getRating() - 1);
+                binding.rating.setText("" + book.getRating());
+            }
+            else if (book.getRating() < 1) {
+                book.setRating(book.getRating() + 1);
+                binding.rating.setText("" + book.getRating());
+            }
+        });
+
+        binding.star2.setOnClickListener(v -> {
+            binding.star1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star3.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
+            binding.star4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
+            binding.star5.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
+
+            if (book.getRating() > 2) {
+                book.setRating(book.getRating() - 1);
+                binding.rating.setText("" + book.getRating());
+            }
+            else if (book.getRating() < 2) {
+                book.setRating(book.getRating() + 1);
+                binding.rating.setText("" + book.getRating());
+            }
+        });
+
+        binding.star3.setOnClickListener(v -> {
+            binding.star1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star3.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
+            binding.star5.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
+
+            if (book.getRating() > 3) {
+                book.setRating(book.getRating() - 1);
+                binding.rating.setText("" + book.getRating());
+            }
+            else if (book.getRating() < 3) {
+                book.setRating(book.getRating() + 1);
+                binding.rating.setText("" + book.getRating());
+            }
+        });
+
+        binding.star4.setOnClickListener(v -> {
+            binding.star1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star3.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star5.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
+
+            if (book.getRating() > 4) {
+                book.setRating(book.getRating() - 1);
+                binding.rating.setText("" + book.getRating());
+            }
+            else if (book.getRating() < 4) {
+                book.setRating(book.getRating() + 1);
+                binding.rating.setText("" + book.getRating());
+            }
+        });
+
+        binding.star5.setOnClickListener(v -> {
+            binding.star1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star3.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+            binding.star5.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
+
+            if (book.getRating() > 5) {
+                book.setRating(book.getRating() - 1);
+                binding.rating.setText("" + book.getRating());
+            }
+            else if (book.getRating() < 5) {
+                book.setRating(book.getRating() + 1);
+                binding.rating.setText("" + book.getRating());
+            }
+        });
 
         binding.headerImage.setOnClickListener(v -> {
             Intent intent = new Intent(this, HomeActivity.class);

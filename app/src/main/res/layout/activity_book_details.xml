@@ -206,7 +206,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="@id/rating_heading"
                     android:textColor="@color/purple_500"
-                    app:drawableLeftCompat="@drawable/outline_star_24" />
+                    app:drawableLeftCompat="@drawable/outline_star_outline_24" />
 
                 <TextView
                     android:id="@+id/star2"
@@ -214,7 +214,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="@id/rating_heading"
                     android:textColor="@color/purple_500"
-                    app:drawableLeftCompat="@drawable/outline_star_24" />
+                    app:drawableLeftCompat="@drawable/outline_star_outline_24" />
 
                 <TextView
                     android:id="@+id/star3"
@@ -222,7 +222,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="@id/rating_heading"
                     android:textColor="@color/purple_500"
-                    app:drawableLeftCompat="@drawable/outline_star_24" />
+                    app:drawableLeftCompat="@drawable/outline_star_outline_24" />
 
                 <TextView
                     android:id="@+id/star4"
@@ -230,7 +230,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="@id/rating_heading"
                     android:textColor="@color/purple_500"
-                    app:drawableLeftCompat="@drawable/outline_star_24" />
+                    app:drawableLeftCompat="@drawable/outline_star_outline_24" />
 
                 <TextView
                     android:id="@+id/star5"
