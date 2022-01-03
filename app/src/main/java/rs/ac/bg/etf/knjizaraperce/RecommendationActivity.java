@@ -33,6 +33,7 @@ public class RecommendationActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Uspesno ste preporucili knjigu korisniku " + username,
                     Toast.LENGTH_SHORT).show();
+            finish();
         });
     }
 }

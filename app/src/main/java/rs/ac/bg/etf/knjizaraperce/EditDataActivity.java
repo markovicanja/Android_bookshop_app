@@ -71,10 +71,12 @@ public class EditDataActivity extends AppCompatActivity {
             case R.id.recommendations_menu_item:
                 Intent recommendationIntent = new Intent(this, RecommendedBooksActivity.class);
                 startActivity(recommendationIntent);
+                finish();
                 return true;
             case R.id.logout_menu_item:
                 Intent loginIntent = new Intent(this, MainActivity.class);
                 startActivity(loginIntent);
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

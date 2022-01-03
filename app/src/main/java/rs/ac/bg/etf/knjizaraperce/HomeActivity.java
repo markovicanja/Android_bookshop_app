@@ -136,6 +136,7 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.logout_menu_item:
                 Intent loginIntent = new Intent(this, MainActivity.class);
                 startActivity(loginIntent);
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
