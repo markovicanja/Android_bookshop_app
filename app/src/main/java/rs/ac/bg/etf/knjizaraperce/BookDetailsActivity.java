@@ -50,6 +50,10 @@ public class BookDetailsActivity extends AppCompatActivity {
             binding.promotionButton.setVisibility(View.GONE);
         }
 
+        binding.userImage.setVisibility(View.GONE);
+        binding.commentAuthor.setVisibility(View.GONE);
+        binding.comment.setVisibility(View.GONE);
+
         binding.star1.setOnClickListener(v -> {
             binding.star1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
             binding.star2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
@@ -147,7 +151,12 @@ public class BookDetailsActivity extends AppCompatActivity {
         });
 
         binding.buttonAddComment.setOnClickListener(v -> {
+            String comment = binding.addComment.getEditText().getText().toString();
+            binding.comment.setText(comment);
 
+            binding.userImage.setVisibility(View.VISIBLE);
+            binding.commentAuthor.setVisibility(View.VISIBLE);
+            binding.comment.setVisibility(View.VISIBLE);
         });
     }
 
