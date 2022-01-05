@@ -1,7 +1,5 @@
 package rs.ac.bg.etf.knjizaraperce;
 
-import android.util.Log;
-
 public class UserViewModel {
     private String username;
     private String password;

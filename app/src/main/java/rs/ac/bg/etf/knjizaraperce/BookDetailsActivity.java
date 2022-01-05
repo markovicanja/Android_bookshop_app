@@ -2,6 +2,7 @@ package rs.ac.bg.etf.knjizaraperce;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import rs.ac.bg.etf.knjizaraperce.databinding.ActivityBookDetailsBinding;
 
@@ -35,6 +37,7 @@ public class BookDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityBookDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         Bundle bundle = getIntent().getExtras();
         bookTitle = bundle.getString("book_title");
         book = findbook();
@@ -50,9 +53,12 @@ public class BookDetailsActivity extends AppCompatActivity {
             binding.promotionButton.setVisibility(View.GONE);
         }
 
-        binding.userImage.setVisibility(View.GONE);
-        binding.commentAuthor.setVisibility(View.GONE);
-        binding.comment.setVisibility(View.GONE);
+        CommentViewModel commentViewModel = CommentViewModel.getInstance(getResources());
+        CommentAdapter commentAdapter = new CommentAdapter(commentViewModel.getComments(bookTitle));
+
+        binding.recyclerView.setHasFixedSize(true);
+        binding.recyclerView.setAdapter(commentAdapter);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         binding.star1.setOnClickListener(v -> {
             binding.star1.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
@@ -152,11 +158,12 @@ public class BookDetailsActivity extends AppCompatActivity {
 
         binding.buttonAddComment.setOnClickListener(v -> {
             String comment = binding.addComment.getEditText().getText().toString();
-            binding.comment.setText(comment);
 
-            binding.userImage.setVisibility(View.VISIBLE);
-            binding.commentAuthor.setVisibility(View.VISIBLE);
-            binding.comment.setVisibility(View.VISIBLE);
+            UserViewModel userViewModel = UserViewModel.getInstance();
+            String author = userViewModel.getFirstName() + " " + userViewModel.getLastName();
+            commentViewModel.addComment(bookTitle, author, comment);
+
+            commentAdapter.notifyDataSetChanged();
         });
     }
 
