@@ -38,6 +38,8 @@ public class BookDetailsActivity extends AppCompatActivity {
         binding = ActivityBookDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        CommentViewModel commentViewModel = CommentViewModel.getInstance(getResources());
+
         Bundle bundle = getIntent().getExtras();
         bookTitle = bundle.getString("book_title");
         book = findbook();
@@ -48,12 +50,11 @@ public class BookDetailsActivity extends AppCompatActivity {
         binding.bookPages.setText("" + book.getPages());
         binding.bookYear.setText("" + book.getYear());
         binding.bookDescription.setText(book.getDescription());
-        binding.rating.setText("" + book.getRating());
+        binding.rating.setText("" + commentViewModel.getRating(bookTitle));
         if (book.getPromotion() == 0) {
             binding.promotionButton.setVisibility(View.GONE);
         }
 
-        CommentViewModel commentViewModel = CommentViewModel.getInstance(getResources());
         CommentAdapter commentAdapter = new CommentAdapter(commentViewModel.getComments(bookTitle));
 
         binding.recyclerView.setHasFixedSize(true);
@@ -67,13 +68,13 @@ public class BookDetailsActivity extends AppCompatActivity {
             binding.star4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
             binding.star5.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
 
-            if (book.getRating() > 1) {
-                book.setRating(book.getRating() - 1);
-                binding.rating.setText("" + book.getRating());
+            if (commentViewModel.getRating(bookTitle) > 1) {
+                commentViewModel.setRating(bookTitle, commentViewModel.getRating(bookTitle) - 1);
+                binding.rating.setText("" + commentViewModel.getRating(bookTitle));
             }
-            else if (book.getRating() < 1) {
-                book.setRating(book.getRating() + 1);
-                binding.rating.setText("" + book.getRating());
+            else if (commentViewModel.getRating(bookTitle) < 1) {
+                commentViewModel.setRating(bookTitle, commentViewModel.getRating(bookTitle) + 1);
+                binding.rating.setText("" + commentViewModel.getRating(bookTitle));
             }
         });
 
@@ -84,13 +85,13 @@ public class BookDetailsActivity extends AppCompatActivity {
             binding.star4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
             binding.star5.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
 
-            if (book.getRating() > 2) {
-                book.setRating(book.getRating() - 1);
-                binding.rating.setText("" + book.getRating());
+            if (commentViewModel.getRating(bookTitle) > 2) {
+                commentViewModel.setRating(bookTitle, commentViewModel.getRating(bookTitle) - 1);
+                binding.rating.setText("" + commentViewModel.getRating(bookTitle));
             }
-            else if (book.getRating() < 2) {
-                book.setRating(book.getRating() + 1);
-                binding.rating.setText("" + book.getRating());
+            else if (commentViewModel.getRating(bookTitle) < 2) {
+                commentViewModel.setRating(bookTitle, commentViewModel.getRating(bookTitle) + 1);
+                binding.rating.setText("" + commentViewModel.getRating(bookTitle));
             }
         });
 
@@ -101,13 +102,13 @@ public class BookDetailsActivity extends AppCompatActivity {
             binding.star4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
             binding.star5.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
 
-            if (book.getRating() > 3) {
-                book.setRating(book.getRating() - 1);
-                binding.rating.setText("" + book.getRating());
+            if (commentViewModel.getRating(bookTitle) > 3) {
+                commentViewModel.setRating(bookTitle, commentViewModel.getRating(bookTitle) - 1);
+                binding.rating.setText("" + commentViewModel.getRating(bookTitle));
             }
-            else if (book.getRating() < 3) {
-                book.setRating(book.getRating() + 1);
-                binding.rating.setText("" + book.getRating());
+            else if (commentViewModel.getRating(bookTitle) < 3) {
+                commentViewModel.setRating(bookTitle, commentViewModel.getRating(bookTitle) + 1);
+                binding.rating.setText("" + commentViewModel.getRating(bookTitle));
             }
         });
 
@@ -118,13 +119,13 @@ public class BookDetailsActivity extends AppCompatActivity {
             binding.star4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
             binding.star5.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_outline_24, 0, 0, 0);
 
-            if (book.getRating() > 4) {
-                book.setRating(book.getRating() - 1);
-                binding.rating.setText("" + book.getRating());
+            if (commentViewModel.getRating(bookTitle) > 4) {
+                commentViewModel.setRating(bookTitle, commentViewModel.getRating(bookTitle) - 1);
+                binding.rating.setText("" + commentViewModel.getRating(bookTitle));
             }
-            else if (book.getRating() < 4) {
-                book.setRating(book.getRating() + 1);
-                binding.rating.setText("" + book.getRating());
+            else if (commentViewModel.getRating(bookTitle) < 4) {
+                commentViewModel.setRating(bookTitle, commentViewModel.getRating(bookTitle) + 1);
+                binding.rating.setText("" + commentViewModel.getRating(bookTitle));
             }
         });
 
@@ -135,13 +136,13 @@ public class BookDetailsActivity extends AppCompatActivity {
             binding.star4.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
             binding.star5.setCompoundDrawablesWithIntrinsicBounds(R.drawable.outline_star_24, 0, 0, 0);
 
-            if (book.getRating() > 5) {
-                book.setRating(book.getRating() - 1);
-                binding.rating.setText("" + book.getRating());
+            if (commentViewModel.getRating(bookTitle) > 5) {
+                commentViewModel.setRating(bookTitle, commentViewModel.getRating(bookTitle) - 1);
+                binding.rating.setText("" + commentViewModel.getRating(bookTitle));
             }
-            else if (book.getRating() < 5) {
-                book.setRating(book.getRating() + 1);
-                binding.rating.setText("" + book.getRating());
+            else if (commentViewModel.getRating(bookTitle) < 5) {
+                commentViewModel.setRating(bookTitle, commentViewModel.getRating(bookTitle) + 1);
+                binding.rating.setText("" + commentViewModel.getRating(bookTitle));
             }
         });
 

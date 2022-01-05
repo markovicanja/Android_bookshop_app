@@ -7,11 +7,14 @@ import java.util.ArrayList;
 public class CommentViewModel {
     private String[] bookTitles;
     private ArrayList<ArrayList<Comment>> comments;
+    private int[] ratings;
 
     private static CommentViewModel instance = null;
 
     private CommentViewModel(Resources resources) {
         bookTitles = resources.getStringArray(R.array.book_titles);
+        ratings = resources.getIntArray(R.array.book_ratings);
+
         comments = new ArrayList<>();
         for (int i = 0; i < bookTitles.length; i++) {
             ArrayList<Comment> bookComments = new ArrayList<>();
@@ -45,6 +48,18 @@ public class CommentViewModel {
         int index = findIndex(bookTitle);
         if (index == -1) return;
         comments.get(index).add(new Comment(author, comment));
+    }
+
+    public int getRating(String bookTitle) {
+        int index = findIndex(bookTitle);
+        if (index == -1) return 0;
+        return ratings[index];
+    }
+
+    public void setRating(String bookTitle, int rating) {
+        int index = findIndex(bookTitle);
+        if (index == -1) return;
+        ratings[index] = rating;
     }
 
 }
