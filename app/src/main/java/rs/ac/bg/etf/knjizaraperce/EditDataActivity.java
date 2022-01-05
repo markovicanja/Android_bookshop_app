@@ -17,7 +17,6 @@ import rs.ac.bg.etf.knjizaraperce.databinding.ActivityEditDataBinding;
 public class EditDataActivity extends AppCompatActivity {
 
     private ActivityEditDataBinding binding;
-    private UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +24,13 @@ public class EditDataActivity extends AppCompatActivity {
         binding = ActivityEditDataBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        userViewModel = ProfileActivity.userViewModel;
+        UserViewModel userViewModel = UserViewModel.getInstance();
 
-        binding.username.setText(userViewModel.getUsername().getValue());
-        binding.firstName.setPlaceholderText(userViewModel.getFirstName().getValue());
-        binding.lastName.setPlaceholderText(userViewModel.getLastName().getValue());
-        binding.address.setPlaceholderText(userViewModel.getAddress().getValue());
-        binding.phone.setPlaceholderText(userViewModel.getPhone().getValue());
+        binding.username.setText(userViewModel.getUsername());
+        binding.firstName.setPlaceholderText(userViewModel.getFirstName());
+        binding.lastName.setPlaceholderText(userViewModel.getLastName());
+        binding.address.setPlaceholderText(userViewModel.getAddress());
+        binding.phone.setPlaceholderText(userViewModel.getPhone());
 
         binding.headerImage.setOnClickListener(v -> {
             Intent intent = new Intent(this, HomeActivity.class);
@@ -39,10 +38,10 @@ public class EditDataActivity extends AppCompatActivity {
         });
 
         binding.buttonChangeData.setOnClickListener(v -> {
-            String first_name = binding.firstName.getEditText().toString();
-            String last_name = binding.lastName.getEditText().toString();
-            String address = binding.address.getEditText().toString();
-            String phone = binding.phone.getEditText().toString();
+            String first_name = binding.firstName.getEditText().getText().toString();
+            String last_name = binding.lastName.getEditText().getText().toString();
+            String address = binding.address.getEditText().getText().toString();
+            String phone = binding.phone.getEditText().getText().toString();
 
             userViewModel.setFirstName(first_name);
             userViewModel.setLastName(last_name);
@@ -50,6 +49,9 @@ public class EditDataActivity extends AppCompatActivity {
             userViewModel.setPhone(phone);
 
             Toast.makeText(this, "Podaci su uspesno izmenjeni.", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
             finish();
         });
     }
@@ -66,6 +68,8 @@ public class EditDataActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.profile_menu_item:
+                Intent intent = new Intent(this, ProfileActivity.class);
+                startActivity(intent);
                 finish();
                 return true;
             case R.id.recommendations_menu_item:

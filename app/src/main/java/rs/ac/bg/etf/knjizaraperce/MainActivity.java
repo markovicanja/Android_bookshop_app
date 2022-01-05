@@ -20,11 +20,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         binding.loginButton.setOnClickListener(v -> {
-
             String username = binding.username.getEditText().getText().toString();
             String password = binding.password.getEditText().getText().toString();
 
-            if (username.equals("anjamarkovic") && password.equals("123")) {
+            UserViewModel userViewModel = UserViewModel.getInstance();
+
+            if (username.equals(userViewModel.getUsername()) && password.equals(userViewModel.getPassword())) {
                 Intent explicitIntent = new Intent(this, HomeActivity.class);
                 startActivity(explicitIntent);
             }

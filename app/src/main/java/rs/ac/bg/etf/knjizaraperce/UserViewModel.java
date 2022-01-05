@@ -1,62 +1,77 @@
 package rs.ac.bg.etf.knjizaraperce;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
+import android.util.Log;
 
-public class UserViewModel extends ViewModel {
-    private MutableLiveData<String> username = new MutableLiveData<>("anjamarkovic");
-    private MutableLiveData<String> password = new MutableLiveData<>("123");
-    private MutableLiveData<String> firstName = new MutableLiveData<>("Anja");
-    private MutableLiveData<String> lastName = new MutableLiveData<>("Markovic");
-    private MutableLiveData<String> address = new MutableLiveData<>("Francuska 11");
-    private MutableLiveData<String> phone = new MutableLiveData<>("123-456-789");
+public class UserViewModel {
+    private String username;
+    private String password;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String phone;
 
-    public LiveData<String> getUsername() {
+    private static UserViewModel instance = null;
+
+    private UserViewModel() {
+        username = "anjamarkovic";
+        password = "123";
+        firstName = "Anja";
+        lastName = "Markovic";
+        address = "Francuska 11";
+        phone = "123-456-789";
+    }
+
+    public static UserViewModel getInstance() {
+        if (instance == null)
+            instance = new UserViewModel();
+        return instance;
+    }
+
+    public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
-        this.username.setValue(username);
+        this.username = username;
     }
 
-    public LiveData<String> getPassword() {
+    public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
-        this.password.setValue(password);
+        this.password = password;
     }
 
-    public LiveData<String> getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName.setValue(firstName);
+        this.firstName = firstName;
     }
 
-    public LiveData<String> getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName.setValue(lastName);
+        this.lastName = lastName;
     }
 
-    public LiveData<String> getAddress() {
+    public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
-        this.address.setValue(address);
+        this.address = address;
     }
 
-    public LiveData<String> getPhone() {
+    public String getPhone() {
         return phone;
     }
 
     public void setPhone(String phone) {
-        this.phone.setValue(phone);
+        this.phone = phone;
     }
 }

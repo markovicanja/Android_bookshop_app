@@ -16,7 +16,6 @@ import rs.ac.bg.etf.knjizaraperce.databinding.ActivityPasswordBinding;
 public class PasswordActivity extends AppCompatActivity {
 
     private ActivityPasswordBinding binding;
-    private UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +23,7 @@ public class PasswordActivity extends AppCompatActivity {
         binding = ActivityPasswordBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        userViewModel = ProfileActivity.userViewModel;
+        UserViewModel userViewModel = UserViewModel.getInstance();
 
         binding.headerImage.setOnClickListener(v -> {
             Intent intent = new Intent(this, HomeActivity.class);
@@ -33,20 +32,23 @@ public class PasswordActivity extends AppCompatActivity {
         });
 
         binding.buttonChangePassword.setOnClickListener(v -> {
-            String newPassword = binding.newPassword.getEditText().toString();
-            String repeatedPassword = binding.repeatedPassword.getEditText().toString();
-            String currentPassword = binding.currentPassword.getEditText().toString();
+            String newPassword = binding.newPassword.getEditText().getText().toString();
+            String repeatedPassword = binding.repeatedPassword.getEditText().getText().toString();
+            String currentPassword = binding.currentPassword.getEditText().getText().toString();
 
             if (!newPassword.equals(repeatedPassword)) {
                 Toast.makeText(this, "Lozinke se ne poklapaju.", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!currentPassword.equals(userViewModel.getPassword().getValue())) {
+            if (!currentPassword.equals(userViewModel.getPassword())) {
                 Toast.makeText(this, "Lozinka nije ispravna.", Toast.LENGTH_SHORT).show();
                 return;
             }
             userViewModel.setPassword(newPassword);
             Toast.makeText(this, "Lozinka je uspesno izmenjena.", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
             finish();
         });
     }
@@ -63,6 +65,8 @@ public class PasswordActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.profile_menu_item:
+                Intent intent = new Intent(this, ProfileActivity.class);
+                startActivity(intent);
                 finish();
                 return true;
             case R.id.recommendations_menu_item:
